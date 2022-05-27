@@ -6,7 +6,7 @@ class TasksTest < ApplicationSystemTestCase
   end
 
   test "visiting the index" do
-    visit tasks_url
+    visit tasks_path
   
     assert_selector "h1", text: "Tasks"
     assert_equal "Do the bed", tasks(:first).name
@@ -20,8 +20,8 @@ class TasksTest < ApplicationSystemTestCase
   end
   
   test 'Updating a task' do
-    visit tasks_url
-    # click_link @task.name
+    visit tasks_path
+    
     click_link 'Edit', match: :first
     assert_selector 'h1', text: 'Edit task'
 
@@ -31,5 +31,15 @@ class TasksTest < ApplicationSystemTestCase
 
     assert_selector 'h1', text: 'Tasks'
   end
+
+  test 'destroying a task' do
+    visit tasks_path
+    assert_text @task.name
+    click_on "Delete", match: :first
+    assert_selector 'h1', text: "Tasks"
+    assert_no_text @task.name
+
+  end
+
 
 end
