@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Author: Martin Arce
 
-Things you may want to cover:
+App Features:
+Rails 7
+SASS
+System Testing
+Hotwire
+Mobile First Approach to CSS Stylying
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
