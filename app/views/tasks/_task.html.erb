@@ -1,5 +1,6 @@
+<%= turbo_frame_tag task do %>
 <div class="task">
-  <%= link_to task.name, task_path(task) %>
+  <%= link_to task.name, task_path(task), data: {turbo_frame: '_top'} %>
   <div class="task__actions">
     <%= button_to "Delete",
                   task_path(task),
@@ -10,3 +11,4 @@
                 class: "btn btn--light" %>
   </div>
 </div>
+<% end %>

@@ -19,25 +19,38 @@ class TasksTest < ApplicationSystemTestCase
     assert_selector 'h1', text: @task.name
   end
   
-  test 'Updating a task' do
-    visit tasks_path
-    
-    click_link 'Edit', match: :first
-    assert_selector 'h1', text: 'Edit task'
+  test 'creating a new task' do
+    visit tasks_url
+    assert_selector 'h1', text: 'Tasks'
 
-
-    fill_in "Name", with: "Updated task"
-    click_on "Update task"
+    click_on 'New task'
+    fill_in 'Name', with: 'New task text'
 
     assert_selector 'h1', text: 'Tasks'
+    assert_text 'New task text'
+  end
+
+  test 'Updating a task' do
+    visit tasks_path
+    click_link 'Edit', match: :first
+    assert_selector 'h1', text: 'Tasks'
+    
+    initial_name = @task.name
+    assert_text @task.name
+    fill_in "Name", with: "Updated task"
+    click_on "Update task"
+    
+    assert_selector 'h1', text: 'Tasks'
+    assert_no_text initial_name
   end
 
   test 'destroying a task' do
     visit tasks_path
     assert_text @task.name
+    
     click_on "Delete", match: :first
-    assert_selector 'h1', text: "Tasks"
     assert_no_text @task.name
+    assert_selector 'h1', text: "Tasks"
 
   end
 

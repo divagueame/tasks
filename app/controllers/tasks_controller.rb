@@ -17,7 +17,10 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      redirect_to tasks_path, notice: 'Task was successfully created.'
+      respond_to do |format|
+        format.html { redirect_to tasks_path, notice: 'Task was successfully created.'}
+        format.turbo_stream
+      end
     else
       render :new
     end
@@ -33,7 +36,11 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to tasks_path, notice: 'Task deleted successfully. Ciao cacao'
+    
+    respond_to do |format|
+      format.html { redirect_to tasks_path, notice: 'Task deleted successfully. Ciao cacao'}
+      format.turbo_stream
+    end
   end
 
   private
