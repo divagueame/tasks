@@ -2,14 +2,14 @@ require "application_system_test_case"
 
 class TasksTest < ApplicationSystemTestCase
   setup do
-    @task = tasks(:first)
+    @task = Task.ordered.first
   end
 
   test "visiting the index" do
     visit tasks_path
   
     assert_selector "h1", text: "Tasks"
-    assert_equal "Do the bed", tasks(:first).name
+    assert_equal "Do the bed", @task.name
   end
 
   test "Showing a task" do
@@ -22,9 +22,12 @@ class TasksTest < ApplicationSystemTestCase
   test 'creating a new task' do
     visit tasks_url
     assert_selector 'h1', text: 'Tasks'
-
+    
     click_on 'New task'
+    assert_selector 'h1', text: 'Tasks'
     fill_in 'Name', with: 'New task text'
+
+    click_on 'Create task'
 
     assert_selector 'h1', text: 'Tasks'
     assert_text 'New task text'
@@ -32,15 +35,16 @@ class TasksTest < ApplicationSystemTestCase
 
   test 'Updating a task' do
     visit tasks_path
-    click_link 'Edit', match: :first
     assert_selector 'h1', text: 'Tasks'
-    
     initial_name = @task.name
-    assert_text @task.name
+
+    click_link 'Edit', match: :first
     fill_in "Name", with: "Updated task"
-    click_on "Update task"
-    
     assert_selector 'h1', text: 'Tasks'
+
+    click_on "Update task"
+    assert_selector 'h1', text: 'Tasks' 
+    assert_text "Updated task"
     assert_no_text initial_name
   end
 
