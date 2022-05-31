@@ -2,6 +2,7 @@ require "application_system_test_case"
 
 class TasksTest < ApplicationSystemTestCase
   setup do
+    login_as users(:boss)
     @task = Task.ordered.first
   end
 

@@ -2,6 +2,12 @@
 
 first:
   name: Do the bed
+  team: chiki
 
 two:
+  name: Find a friend
+  team: chiki
+
+three:
   name: Feed the cat
+  team: boom

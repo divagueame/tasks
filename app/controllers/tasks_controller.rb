@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit destroy update]
 
   def index
-    @tasks = Task.ordered
+    @tasks = current_team.tasks.ordered
   end
 
   def show; end
@@ -14,7 +14,7 @@ class TasksController < ApplicationController
   def edit; end
 
   def create
-    @task = Task.new(task_params)
+    @task = current_team.tasks.build(task_params)
 
     if @task.save
       respond_to do |format|
@@ -46,7 +46,7 @@ class TasksController < ApplicationController
   private
 
   def set_task
-    @task = Task.find(params[:id])
+    @task = current_team.tasks.find(params[:id])
   end
 
   def task_params
