@@ -1,0 +1,12 @@
+boss: 
+  email: boss@chiki.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+loser:
+  email: loser@chiki.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+smartie: 
+  email: smartie@boom.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
