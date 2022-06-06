@@ -25,7 +25,7 @@ class TasksTest < ApplicationSystemTestCase
     assert_selector 'h1', text: 'Tasks'
     
     click_on 'New task'
-    assert_selector 'h1', text: 'Tasks'
+    assert_selector 'h1', text: 'New task'
     fill_in 'Name', with: 'New task text'
 
     click_on 'Create task'
@@ -41,7 +41,7 @@ class TasksTest < ApplicationSystemTestCase
 
     click_link 'Edit', match: :first
     fill_in "Name", with: "Updated task"
-    assert_selector 'h1', text: 'Tasks'
+    assert_selector 'h1', text: 'Edit task'
 
     click_on "Update task"
     assert_selector 'h1', text: 'Tasks' 
