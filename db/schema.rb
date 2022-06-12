@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_31_164738) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_12_093328) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,6 +28,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_164738) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "todos", force: :cascade do |t|
+    t.bigint "task_id", null: false
+    t.string "name", null: false
+    t.boolean "done", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name", "task_id"], name: "index_todos_on_name_and_task_id", unique: true
+    t.index ["name"], name: "index_todos_on_name"
+    t.index ["task_id"], name: "index_todos_on_task_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -43,5 +54,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_164738) do
   end
 
   add_foreign_key "tasks", "teams"
+  add_foreign_key "todos", "tasks"
   add_foreign_key "users", "teams"
 end
