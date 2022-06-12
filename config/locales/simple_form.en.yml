@@ -7,10 +7,15 @@ en:
     labels:
       task:
         name: Name
+      todo:
+        name: Name
 
   helpers:
     submit:
       task:
         create: Create task
         update: Update task
+      todo:
+        create: Create to-do
+        update: Update to-do
     

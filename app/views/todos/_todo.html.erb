@@ -10,6 +10,7 @@
       <%= button_to "Delete",
                     [task, todo],
                     method: :delete,
+                    form: { data: {turbo_confirm: 'Sure?' } },
                     class: "btn btn--light" %>
       <%= link_to "Edit",
                   [:edit, task, todo],
