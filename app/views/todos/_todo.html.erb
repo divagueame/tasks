@@ -1,0 +1,18 @@
+
+<div class="todo">
+  <div class="todo__header">
+    <h2 class="todo__title">
+      <%= todo.name %>
+    </h2>
+
+    <div class="todo__actions">
+      <%= button_to "Delete",
+                    [task, todo],
+                    method: :delete,
+                    class: "btn btn--light" %>
+      <%= link_to "Edit",
+                  [:edit, task, todo],
+                  class: "btn btn--light" %>
+    </div>
+  </div>
+</div>

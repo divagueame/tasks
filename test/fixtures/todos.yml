@@ -1,11 +1,14 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
   task: one
-  name: MyString
+  name: Get new clean sheets
   done: false
 
 two:
+  task: one
+  name: Put the sheets on the bed
+  done: false
+
+three:
   task: two
-  name: MyString
+  name: Go outside and talk to people
   done: false

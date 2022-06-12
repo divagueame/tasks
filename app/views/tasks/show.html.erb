@@ -5,5 +5,7 @@
     <h1>
       <%= @task.name %>
     </h1>
+    <%= link_to 'New todo', new_task_todo_path(@task), class: "btn btn-primary" %>
   </div>
+  <%= render @todos, task: @task %>
 </main>

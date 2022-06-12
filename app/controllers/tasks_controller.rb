@@ -5,7 +5,9 @@ class TasksController < ApplicationController
     @tasks = current_team.tasks.ordered
   end
 
-  def show; end
+  def show
+    @todos = @task.todos.ordered
+  end
 
   def new
     @task = Task.new
