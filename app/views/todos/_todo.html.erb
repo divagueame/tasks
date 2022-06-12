@@ -2,7 +2,8 @@
 <div class="todo">
   <div class="todo__header">
     <h2 class="todo__title">
-      <%= todo.name %>
+        <%= if todo.done then 'X' else ' ' end %>
+        <%= todo.name %>
     </h2>
 
     <div class="todo__actions">

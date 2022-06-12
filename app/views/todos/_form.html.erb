@@ -1,0 +1,12 @@
+<%= simple_form_for [task, todo], html: { class: "form todo" } do |f| %>
+  <% if todo.errors.any? %>
+    <div class="error-message">
+      <%= todo.errors.full_messages.to_sentence.capitalize %>
+    </div>
+  <% end %>
+
+  <%= f.text_field :name, html5: true, input_html: { autofocus: true } %>
+  <%= f.check_box :done, html5: true %>
+  <%= link_to "Cancel", task_path(task), class: "btn btn--light" %>
+  <%= f.submit class: "btn btn--secondary" %>
+<% end %>
