@@ -15,7 +15,10 @@ class TodosController < ApplicationController
     @todo = @task.todos.build(todo_params)
 
     if @todo.save
-      redirect_to task_path(@task), notice: 'Todo was successfully created.'
+      respond_to do |format|
+        format.html { redirect_to task_path(@task), notice: 'Todo was successfully created.' }
+        format.turbo_stream { flash.now[notice:] = 'Todo was successfully created.' }
+      end
     else
       render :new, status: :unprocessable_entity
     end

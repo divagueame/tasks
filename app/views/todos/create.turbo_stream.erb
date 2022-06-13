@@ -1,0 +1,17 @@
+<%= turbo_stream.update Todo.new, '' %>
+
+ 
+
+<%# Step 2: add the date at the right place %>
+<% if previous_todo = @task.todos.ordered.where("name < ?", @todo.name).last %><% p 'YESSS' %>
+  <%= turbo_stream.after previous_todo do %>
+    <%= render @todo, task: @task %>
+  <% end %>
+<% else %><% p 'NOO' %>
+  <%= turbo_stream.prepend "todos" do %>
+    <%= render @todo, task: @task %>
+  <% end %>
+<% end %>
+
+
+<%= render_turbo_stream_flash_messages %>
