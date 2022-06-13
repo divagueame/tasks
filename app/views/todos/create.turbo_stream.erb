@@ -3,11 +3,11 @@
  
 
 <%# Step 2: add the date at the right place %>
-<% if previous_todo = @task.todos.ordered.where("name < ?", @todo.name).last %><% p 'YESSS' %>
+<% if previous_todo = @todo.previous_todo %>
   <%= turbo_stream.after previous_todo do %>
     <%= render @todo, task: @task %>
   <% end %>
-<% else %><% p 'NOO' %>
+<% else %>
   <%= turbo_stream.prepend "todos" do %>
     <%= render @todo, task: @task %>
   <% end %>
