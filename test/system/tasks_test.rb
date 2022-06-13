@@ -25,7 +25,7 @@ class TasksTest < ApplicationSystemTestCase
     assert_selector 'h1', text: 'Tasks'
     
     click_on 'New task'
-    assert_selector 'h1', text: 'New task'
+    assert_selector 'a', text: 'New task'
     fill_in 'Name', with: 'New task text'
 
     click_on 'Create task'
@@ -38,13 +38,13 @@ class TasksTest < ApplicationSystemTestCase
     visit tasks_path
     assert_selector 'h1', text: 'Tasks'
     initial_name = @task.name
-
+    
     click_link 'Edit', match: :first
+    assert_selector 'h1', text: 'Tasks'
     fill_in "Name", with: "Updated task"
-    assert_selector 'h1', text: 'Edit task'
 
     click_on "Update task"
-    assert_selector 'h1', text: 'Tasks' 
+    assert_selector 'h1', text: 'Tasks'
     assert_text "Updated task"
     assert_no_text initial_name
   end
