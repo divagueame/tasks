@@ -1,4 +1,4 @@
-<%= turbo_stream.update Todo.new, '' %>
+<%= turbo_stream.remove @todo %>
 
 <% if previous_todo = @todo.previous_todo %>
   <%= turbo_stream.after previous_todo do %>

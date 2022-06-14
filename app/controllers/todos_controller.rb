@@ -29,7 +29,10 @@ class TodosController < ApplicationController
 
   def update
     if @todo.update(todo_params)
-      redirect_to task_path(@task), notice: 'Todo was successfully updated.'
+      respond_to do |format|
+        format.html { redirect_to task_path(@task), notice: 'Todo was successfully updated.'}
+        format.turbo_stream { flash.now[:notice] = 'Todo successfully updated'}
+      end
     else
       render :edit, status: :unprocessable_entity
     end
@@ -37,7 +40,10 @@ class TodosController < ApplicationController
 
   def destroy
     @todo.destroy
-    redirect_to task_path(@task), notice: 'Todo deleted successfully. Ciao cacao'
+    respond_to do |format|
+      format.html { redirect_to task_path(@task), notice: 'Todo deleted successfully. Ciao cacao' }
+      format.turbo_stream { flash.now[:notice] = 'Todo deleted successfully. Ciao cacao' }
+    end
   end
 
   private
