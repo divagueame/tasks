@@ -6,7 +6,7 @@ class TasksController < ApplicationController
   end
 
   def show
-    @todos = @task.todos.ordered
+    @todos = @task.todos.includes(:details).ordered
   end
 
   def new

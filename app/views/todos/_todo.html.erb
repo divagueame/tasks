@@ -17,5 +17,21 @@
                   class: "btn btn--light" %>
     </div>
   </div>
+  <div class="todo__body">
+    <div class="detail detail--header">
+      <div class="detail__name">Name</div>
+      <div class="detail__description">Description</div>
+      <div class="detail__time">Time</div>
+      <div class="detail__actions"></div>
+    </div>
+
+    <%= render todo.details, task: task, todo: todo %>
+
+    <div class="todo__footer">
+     <%= link_to "Add detail",
+                    [:new, task, todo, :detail],
+                    class: "btn btn--primary" %>
+      </div>
+  </div>
 </div>
 <% end %>

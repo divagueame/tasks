@@ -1,13 +1,24 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
+go_bathroom:
   todo: one
-  name: MyString
-  description: MyText
-  time: 1
+  name: Go to bathroom
+  description: Need to go to the bathroom with your feet
+  time: 2
 
-two:
-  todo: two
-  name: MyString
-  description: MyText
-  time: 1
+open_door:
+  todo: one
+  name: open the door
+  description: use the handle to open the door
+  time: 2
+
+
+open_closet:
+  todo: one
+  name: open the closet
+  description: use the handle to open the closet
+  time: 2
+
+take_sheet:
+  todo: one
+  name: pick up the sheet
+  description: use the handle to pick up the sheet
+  time: 5
