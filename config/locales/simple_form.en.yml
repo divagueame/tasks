@@ -4,18 +4,27 @@ en:
     placeholders:
       task:
         name: Name of your task
+      detail: 
+        name: detail
+        description: description ofyour detail
+        time: 10
     labels:
       task:
         name: Name
       todo:
         name: Name
+      detail:
+        name: detail
 
   helpers:
     submit:
       task:
         create: Create task
         update: Update task
+      detail:
+        create: Create detail
+        update: Update detail
       todo:
-        create: Create to-do
-        update: Update to-do
-    
+        create: Create todo
+        update: Update todo
+  
