@@ -1,0 +1,19 @@
+
+<%= simple_form_for [task, todo, detail],
+                    html: { class: "form detail detail--form" } do |f| %>
+
+  <%= form_error_notification(detail) %>
+
+  <%= f.input :name,
+              wrapper_html: { class: "detail__name" },
+              input_html: { autofocus: true } %>
+  <%= f.input :description,
+              wrapper_html: { class: "detail__description" } %>
+  <%= f.input :time,
+              wrapper_html: { class: "detail__time" } %>
+
+  <div class="detail__actions">
+    <%= link_to "Cancel", task_path(task), class: "btn btn--light" %>
+    <%= f.submit class: "btn btn--secondary" %>
+  </div>
+<% end %>

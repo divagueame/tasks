@@ -30,6 +30,7 @@
     <div class="todo__footer">
      <%= link_to "Add detail",
                     [:new, task, todo, :detail],
+                    data: { turbo_frame: "_top"},
                     class: "btn btn--primary" %>
       </div>
   </div>
