@@ -1,6 +1,7 @@
 class DetailsController < ApplicationController
   before_action :set_task
   before_action :set_todo
+  before_action :set_detail, only: [:edit, :update, :destroy]
 
   def new
     @detail = @todo.details.build
@@ -16,26 +17,27 @@ class DetailsController < ApplicationController
     end
   end
 
-#   def edit; end
+  def edit; end
 
-#   def update
-#     if @detail.update(detail_params)
-#       respond_to do |format|
-#         format.html { redirect_to task_path(@task), notice: 'Todo was successfully updated.' }
-#         format.turbo_stream { flash.now[:notice] = 'Todo successfully updated' }
-#       end
-#     else
-#       render :edit, status: :unprocessable_entity
-#     end
-#   end
+  def update
+    if @detail.update(detail_params)
+      redirect_to task_path(@todo), notice: 'Detail was successfully updated.' 
+      # respond_to do |format|
+      #   format.html { redirect_to task_path(@task), notice: 'Detail was successfully updated.' }
+      #   format.turbo_stream { flash.now[:notice] = 'Detail successfully updated' }
+      # end
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
 
-#   def destroy
-#     @todo.destroy
-#     respond_to do |format|
-#       format.html { redirect_to task_path(@task), notice: 'Todo deleted successfully. Ciao cacao' }
-#       format.turbo_stream { flash.now[:notice] = 'Todo deleted successfully. Ciao cacao' }
-#     end
-#   end
+  def destroy
+    # @todo.destroy
+    # respond_to do |format|
+    #   format.html { redirect_to task_path(@task), notice: 'Detail deleted successfully. Ciao cacao' }
+    #   format.turbo_stream { flash.now[:notice] = 'Detail deleted successfully. Ciao cacao' }
+    # end
+  end
 
   private
 
@@ -49,5 +51,9 @@ class DetailsController < ApplicationController
 
   def set_todo
     @todo = @task.todos.find(params[:todo_id])
+  end
+
+  def set_detail
+    @detail = @todo.details.find(params[:id])
   end
 end
