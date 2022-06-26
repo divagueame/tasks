@@ -4,7 +4,8 @@
   <div class="header">
     <h1>Edit name</h1>
   </div>
-  <%= turbo_frame_tag @todo do %>
+
+  <%= turbo_frame_tag dom_id(@todo, :edit) do %>
     <%= render "form", task: @task, todo: @todo %>
   <% end %>
 </main>

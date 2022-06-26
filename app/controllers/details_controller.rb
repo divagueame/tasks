@@ -24,11 +24,11 @@ class DetailsController < ApplicationController
 
   def update
     if @detail.update(detail_params)
-      redirect_to task_path(@todo), notice: 'Detail was successfully updated.'
-      # respond_to do |format|
-      #   format.html { redirect_to task_path(@task), notice: 'Detail was successfully updated.' }
-      #   format.turbo_stream { flash.now[:notice] = 'Detail successfully updated' }
-      # end
+      
+      respond_to do |format|
+        format.html { redirect_to task_path(@task), notice: 'Detail was successfully updated.' }
+        format.turbo_stream { flash.now[:notice] = 'Detail successfully updated' }
+      end
     else
       render :edit, status: :unprocessable_entity
     end
@@ -36,11 +36,11 @@ class DetailsController < ApplicationController
 
   def destroy
     @detail.destroy
-    redirect_to task_path(@task), notice: 'Detail deleted successfully. Ciao cacao'
-    # respond_to do |format|
-    # format.html { redirect_to task_path(@task), notice: 'Detail deleted successfully. Ciao cacao' }
-    #   format.turbo_stream { flash.now[:notice] = 'Detail deleted successfully. Ciao cacao' }
-    # end
+
+    respond_to do |format|
+      format.html { redirect_to task_path(@task), notice: 'Detail deleted successfully. Ciao cacao' }
+      format.turbo_stream { flash.now[:notice] = "Detail was successfully destroyed." }
+    end
   end
 
   private

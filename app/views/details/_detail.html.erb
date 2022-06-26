@@ -1,3 +1,4 @@
+<%= turbo_frame_tag detail do %>
 <div class="detail">
     <div class="detail__name">
         <%= detail.name %>
@@ -12,11 +13,10 @@
         <%= button_to "Delete",
                     [task, todo, detail],
                     method: :delete,
-                    data: { turbo_frame: "_top"},
                     class: "btn btn--light" %>
         <%= link_to "Edit",
                     [:edit, task, todo, detail],
-                    data: { turbo_frame: "_top"},
                     class: "btn btn--light" %>
     </div>
 </div>
+<% end %>

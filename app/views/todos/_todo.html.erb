@@ -1,34 +1,38 @@
 <%= turbo_frame_tag todo do %>
   <div class="todo">
-    <div class="todo__header">
-      <h2 class="todo__title">
-          <%= if todo.done then 'X' else ' ' end %>
-          <%= todo.name %>
-      </h2>
+    <%= turbo_frame_tag dom_id(todo, :edit) do %>
+      <div class="todo__header">
+        <h2 class="todo__title">
+            <%= if todo.done then 'X' else ' ' end %>
+            <%= todo.name %>
+        </h2>
 
-      <div class="todo__actions">
-        <%= button_to "Delete",
-                      [task, todo],
-                      method: :delete,
-                      form: { data: {turbo_confirm: 'Sure?' } },
+        <div class="todo__actions">
+          <%= button_to "Delete",
+                        [task, todo],
+                        method: :delete,
+                        form: { data: {turbo_confirm: 'Sure?' } },
+                        class: "btn btn--light" %>
+          <%= link_to "Edit",
+                      [:edit, task, todo],
                       class: "btn btn--light" %>
-        <%= link_to "Edit",
-                    [:edit, task, todo],
-                    class: "btn btn--light" %>
+        </div>
       </div>
-    </div>
+    <%  end %>
+
     <div class="todo__body">
-      <div class="detail detail--header">
-        <div class="detail__name">Name</div>
-        <div class="detail__description">Description</div>
-        <div class="detail__time">Time</div>
-        <div class="detail__actions"></div>
-      </div>
+        <div class="detail detail--header">
+          <div class="detail__name">Name</div>
+          <div class="detail__description">Description</div>
+          <div class="detail__time">Time</div>
+          <div class="detail__actions"></div>
+        </div>
 
 
       <%= turbo_frame_tag nested_dom_id(todo, "details") do %>
         <%= render todo.details, task: task, todo: todo %>
       <% end %>
+
       
       <%= turbo_frame_tag nested_dom_id(todo, Detail.new) %>
 

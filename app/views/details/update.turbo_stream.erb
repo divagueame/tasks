@@ -1,0 +1,6 @@
+
+<%= turbo_stream.replace @detail do %>
+  <%= render @detail, task: @task, todo: @todo %>
+<% end %>
+
+<%= render_turbo_stream_flash_messages %>
