@@ -1,13 +1,14 @@
 <div class="detail">
     <div class="detail__name">
         <%= detail.name %>
-        <div class="detail__description">
-            <%= simple_format detail.description %>
-        </div>
+    </div>
+    <div class="detail__description">
+        <%= simple_format detail.description %>
+    </div>
+    <div class="detail_time">
         <%= detail.time %>
     </div>
-
-     <div class="line-item__actions">
+     <div class="detail__actions">
         <%= button_to "Delete",
                     [task, todo, detail],
                     method: :delete,
@@ -18,5 +19,4 @@
                     data: { turbo_frame: "_top"},
                     class: "btn btn--light" %>
     </div>
-
 </div>
