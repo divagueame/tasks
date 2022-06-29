@@ -1,2 +1,7 @@
 <%= turbo_stream.remove @todo %>
 <%= render_turbo_stream_flash_messages %>
+
+
+<%= turbo_stream.update dom_id(@task, :total) do %>
+  <%= render 'tasks/total', task: @task %>
+<% end %>

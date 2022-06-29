@@ -1,4 +1,4 @@
-require "application_system_test_case"
+require 'application_system_test_case'
 
 class TodosTest < ApplicationSystemTestCase
   setup do
@@ -9,44 +9,42 @@ class TodosTest < ApplicationSystemTestCase
     visit task_path(@task)
   end
 
-  test "creating a new todo" do
+  test 'creating a new todo' do
     assert_no_text 'A new name'
-    assert_selector "h1", text: @task.name
+    assert_selector 'h1', text: @task.name
     click_on 'New todo'
     fill_in 'todo_name', with: 'A new name'
     click_on 'Create todo'
-    assert_selector "h2.todo__title", text: 'A new name'
+    assert_selector 'h2.todo__title', text: 'A new name'
   end
 
   test 'Updating a todo' do
     assert_selector 'h1', text: @task.name
     initial_name = @todo.name
-    
+
     within id: dom_id(@todo, :edit) do
-      click_on "Edit"
+      click_on 'Edit'
     end
-    
+
     assert_selector 'h1', text: @task.name
     fill_in 'todo_name', with: 'An updated name'
 
-    click_on "Update todo"
+    click_on 'Update todo'
     assert_selector 'h1', text: @task.name
     assert_text 'An updated name'
     assert_no_text initial_name
   end
 
   test 'destroying a todo' do
-    
     assert_text @todo.name
     accept_confirm do
       within id: dom_id(@todo, :edit) do
-        click_on "Delete"
+        click_on 'Delete'
       end
     end
 
     assert_no_text @todo.name
     assert_selector 'h1', text: @task.name
+    assert_text @task.total_time
   end
-
-
 end
