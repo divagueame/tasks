@@ -1,6 +1,8 @@
-
 // Mixins
 @import "mixins/media";
+
+// Utilities
+@import "utilities/margins";
 
 // Configuration
 @import "config/variables";
@@ -19,6 +21,7 @@
 @import "components/empty_state";
 @import "components/todo";
 @import "components/detail";
+@import "components/task_total";
 
 // Layouts
 @import "layouts/container";

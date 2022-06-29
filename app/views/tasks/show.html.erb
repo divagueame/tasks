@@ -1,5 +1,5 @@
 
-<main class="container">
+<main class="container mb-xxxxl">
   <%= link_to sanitize("&larr; Back to tasks"), tasks_path %>
   <div class="header">
     <h1>
@@ -16,3 +16,4 @@
     <%= render @todos, task: @task %>
   <% end %>
 </main>
+<%= render 'tasks/total', task: @task %>
