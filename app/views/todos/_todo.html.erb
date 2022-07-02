@@ -1,9 +1,9 @@
 <%= turbo_frame_tag todo do %>
-  <div class="todo">
+  <div class="todo <%= 'todo-done' if todo.done %>">
     <%= turbo_frame_tag dom_id(todo, :edit) do %>
       <div class="todo__header">
         <h2 class="todo__title">
-            <%= if todo.done then 'X' else ' ' end %>
+            <%= image_tag 'checkbox' if todo.done %>
             <%= todo.name %>
         </h2>
 
@@ -12,7 +12,7 @@
                         [task, todo],
                         method: :delete,
                         form: { data: {turbo_confirm: 'Sure?' } },
-                        class: "btn btn--light" %>
+                        class: "btn btn--light #{'done' if todo.done}" %>
           <%= link_to "Edit",
                       [:edit, task, todo],
                       class: "btn btn--light" %>
@@ -37,10 +37,14 @@
       <%= turbo_frame_tag nested_dom_id(todo, Detail.new) %>
 
       <div class="todo__footer">
-        <%= link_to "Add detail",
-                        [:new, task, todo, :detail],
-                        data: { turbo_frame: nested_dom_id(todo, Detail.new )},
-                        class: "btn btn--primary" %>
+        <% if todo.done %>
+          All the details of this todo have been completed. Delete this todo or edit it as undone to add more details.
+        <% else %>
+          <%= link_to "Add detail",
+                          [:new, task, todo, :detail],
+                          data: { turbo_frame: nested_dom_id(todo, Detail.new )},
+                          class: "btn btn--primary" %>
+        <% end %>
       </div>
     </div>
   </div>

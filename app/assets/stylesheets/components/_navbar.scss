@@ -1,26 +1,31 @@
-
 .navbar {
-    display: flex;
-    align-items: center;
-    box-shadow: var(--shadow-large);
-    padding: var(--space-xs) var(--space-m);
-    margin-bottom: var(--space-xxl);
-    background-color: (var(--color-white));
-  
-    &__brand {
-      font-weight: bold;
-      font-size: var(--font-size-xl);
-      color: var(--color-text-header);
-    }
-  
-    &__name {
-      font-weight: bold;
-      margin-left: auto;
-      margin-right: var(--space-s);
-      color: var(--color-text-header);
-    }
-  
-    &__right {
-      margin-left: auto;
-    }
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-large);
+  padding: var(--space-xs) var(--space-m);
+  margin-bottom: var(--space-xxl);
+  background-color: (var(--color-white));
+
+  &__brand {
+    font-weight: bold;
+    font-size: var(--font-size-xl);
+    color: var(--color-text-header);
   }
+  &__user-info {
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: var(--space-s);
+    border: 1px dashed rgb(124, 124, 124);
+    border-radius: 2px;
+    padding: var(--space-xs) var(--space-s);
+    font-size: var(--font-size-s);
+    line-height: var(--space-s);
+  }
+  &__name {
+    color: var(--color-text-header);
+  }
+
+  &__right {
+    margin-left: auto;
+  }
+}

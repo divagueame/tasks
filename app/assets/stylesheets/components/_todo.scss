@@ -1,49 +1,87 @@
 .todo {
-    margin-top: var(--space-xl);
-    margin-bottom: var(--space-xxs);
-  
-    &__header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-xs);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-xxs);
+
+  input[type="checkbox"] {
+    // background-color: black;
+    // outline: 10px solid black;
+    // padding: var(--space-s);
+    // margin: var(--space-s);
+    width: var(--space-l);
+    height: var(--space-l);
+  }
+  form .done {
+    display: flex;
+    gap: var(--space-xs);
+    align-items: center;
+  }
+  form.todo &__actions {
+    // outline: 2px solid green;
+    margin-left: auto;
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-xs);
+  }
+
+  &__title {
+    display: flex;
+    gap: var(--space-xs);
+    font-size: var(--font-size-xl);
+
+    @include media(tabletAndUp) {
+      font-size: var(--font-size-xxl);
     }
-  
-    &__title {
-      font-size: var(--font-size-xl);
-  
-      @include media(tabletAndUp) {
-        font-size: var(--font-size-xxl);
-      }
-    }
-  
-    &__actions {
-      display: flex;
-      gap: var(--space-xs);
-    }
-
-
-    &__body {
-      border-radius: var(--border-radius);
-      background-color: var(--color-white);
-      box-shadow: var(--shadow-small);
-      margin-top: var(--space-xs);
-      padding: var(--space-xxs);
-      padding-top: 0;
-
-      @include media(tabletAndUp) {
-        padding: var(--space-m);
-      }
-    }
-
-    &__footer {
-      border: dashed 2px var(--color-light);
-      border-radius: var(--border-radius);
-      text-align: center;
-      padding: var(--space-xxs);
-
-      @include media(tabletAndUp) {
-        padding: var(--space-m);
-      }
+    img {
+      max-width: var(--space-m);
+      filter: invert(41%) sepia(14%) saturate(54%) hue-rotate(314deg)
+        brightness(102%) contrast(94%);
     }
   }
+
+  &__actions {
+    display: flex;
+    gap: var(--space-xs);
+  }
+
+  &__body {
+    border-radius: var(--border-radius);
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-small);
+    margin-top: var(--space-xs);
+    padding: var(--space-xxs);
+    padding-top: 0;
+
+    @include media(tabletAndUp) {
+      padding: var(--space-m);
+    }
+  }
+
+  &__footer {
+    border: dashed 2px var(--color-light);
+    border-radius: var(--border-radius);
+    text-align: center;
+    padding: var(--space-xxs);
+
+    @include media(tabletAndUp) {
+      padding: var(--space-m);
+    }
+  }
+}
+
+.todo-done {
+  h2 {
+    text-decoration: line-through;
+    color: var(--color-text-muted);
+  }
+
+  .btn.done {
+    background-color: var(--color-primary-rotate);
+    color: white;
+  }
+  .todo__body {
+    background: var(--color-white);
+  }
+}

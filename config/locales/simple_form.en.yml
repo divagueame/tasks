@@ -1,12 +1,11 @@
-
 en:
   simple_form:
     placeholders:
       task:
         name: Name of your task
-      detail: 
-        name: detail
-        description: description ofyour detail
+      detail:
+        name: Detail
+        description: Description ofyour detail
         time: 10
     labels:
       task:
@@ -27,4 +26,3 @@ en:
       todo:
         create: Create todo
         update: Update todo
-  
