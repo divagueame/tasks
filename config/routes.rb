@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
-  
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+
   resources :tasks do
-    resources :todos, except: [:index, :show] do
-      resources :details, except: [:index, :show]
+    resources :todos, except: %i[index show] do
+      resources :details, except: %i[index show]
     end
   end
-  root "pages#index"
+  root 'pages#index'
 end

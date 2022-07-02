@@ -14,13 +14,13 @@
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: true,
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "new-password" } %>chi
     <%= select("user", "team_id", Team.all.collect { |team| [ team.name, team.id ] }, { prompt: 'Select Team' }) %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" , data: { turbo: false } %>
+    <%= f.button :submit, "Sign up" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%= render "users/shared/links" %>
