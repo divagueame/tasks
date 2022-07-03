@@ -13,7 +13,9 @@ en:
       todo:
         name: Name
       detail:
-        name: detail
+        name: Detail name
+        description: Description
+        time: Expected time to complete
 
   helpers:
     submit:

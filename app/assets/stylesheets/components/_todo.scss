@@ -5,19 +5,26 @@
   input[type="checkbox"] {
     // background-color: black;
     // outline: 10px solid black;
-    // padding: var(--space-s);
     // margin: var(--space-s);
     width: var(--space-l);
     height: var(--space-l);
   }
-  form .done {
+  input[type="text"] {
+    flex-basis: 100%;
+    padding: var(--space-xs);
+  }
+  .done {
     display: flex;
     gap: var(--space-xs);
     align-items: center;
+    flex-basis: 100%;
   }
   form.todo &__actions {
-    // outline: 2px solid green;
-    margin-left: auto;
+    // outline: 2px solid rgb(255, 12s3, 0);
+    @include media(tabletAndUp) {
+      // outline: 2px solid green;
+      margin-left: auto;
+    }
   }
   &__header {
     display: flex;

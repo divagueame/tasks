@@ -36,6 +36,12 @@
       border-color: var(--color-primary);
     }
   }
+  .detail__description &__input {
+    min-height: 120px;
+    @include media(tabletAndUp) {
+      min-height: 50px;
+    }
+  }
 }
 .form-inputs,
 .form-actions {

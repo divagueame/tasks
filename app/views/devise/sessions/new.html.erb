@@ -1,7 +1,7 @@
 <div class="container devise">
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <h2>Log in</h2>
+    <h2>Sign in</h2>
     <div class="form-inputs">
       <%= f.input :email,
                   required: false,
@@ -14,7 +14,7 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Log in", class:'btn btn--primary', data: { turbo: false }  %>
+      <%= f.button :submit, "Sign in", class:'btn btn--primary', data: { turbo: false }  %>
     </div>
   <% end %>
 <hr>

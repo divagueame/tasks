@@ -3,7 +3,7 @@
     <h2>TeamTask</h2>
     <% end %>
     <% if user_signed_in? %>
-        <div class="navbar__brand">@<%= current_team.name %></div>
+        <h2 class="navbar__brand">@<%= current_team.name %></h2>
         <div class="navbar__user-info">
             <div><%= current_user.name %></div>
             <div></div><%= current_user.email %></div>

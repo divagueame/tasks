@@ -6,10 +6,12 @@
   <%= f.input :name,
               wrapper_html: { class: "detail__name" },
               input_html: { autofocus: true } %>
+
   <%= f.input :description,
               wrapper_html: { class: "detail__description" } %>
 
     <%= f.input :time,
+      wrapper_html: { class: "detail__time" },
       collection: [['00:05', 5],
                   ['00:15', 15],
                   ['00:30', 30],

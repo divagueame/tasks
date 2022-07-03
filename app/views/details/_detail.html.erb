@@ -1,22 +1,22 @@
 <%= turbo_frame_tag detail do %>
-<div class="detail">
-    <div class="detail__name">
-        <%= detail.name %>
+    <div class="detail">
+        <div class="detail__name">
+            <%= detail.name %>
+        </div>
+        <div class="detail__description">
+            <%= simple_format detail.description %>
+        </div>
+        <div class="detail__time">
+            <%= detail.time %>
+        </div>
+        <div class="detail__actions">
+            <%= button_to "Delete",
+                        [task, todo, detail],
+                        method: :delete,
+                        class: "btn btn--light" %>
+            <%= link_to "Edit",
+                        [:edit, task, todo, detail],
+                        class: "btn btn--light" %>
+        </div>
     </div>
-    <div class="detail__description">
-        <%= simple_format detail.description %>
-    </div>
-    <div class="detail_time">
-        <%= detail.time %>
-    </div>
-     <div class="detail__actions">
-        <%= button_to "Delete",
-                    [task, todo, detail],
-                    method: :delete,
-                    class: "btn btn--light" %>
-        <%= link_to "Edit",
-                    [:edit, task, todo, detail],
-                    class: "btn btn--light" %>
-    </div>
-</div>
 <% end %>

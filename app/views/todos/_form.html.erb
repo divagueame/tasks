@@ -1,7 +1,8 @@
 <%= simple_form_for [task, todo], html: { class: "form todo" } do |f| %>
     <%= form_error_notification(todo) %>
 
-  <%= f.text_field :name, html5: true, input_html: { autofocus: true } %>
+    <%= f.label :name %>
+    <%= f.text_field :name, html5: true, input_html: { autofocus: true } %>
   <div class='done'>
     <%= f.check_box :done, html5: true %>
     <%= f.label :done do %>Completed<% end %>
