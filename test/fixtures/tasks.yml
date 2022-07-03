@@ -1,11 +1,11 @@
 one:
   name: Do the bed
-  team: chiki
+  team: frontend
 
 two:
   name: Find a friend
-  team: chiki
+  team: frontend
 
 three:
   name: Feed the cat
-  team: boom
+  team: backend

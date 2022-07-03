@@ -1,7 +1,8 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+marketing:
+  name: marketing
 
-chiki:
-  name: chiki
+backend:
+  name: backend
 
-boom:
-  name: boom
+frontend:
+  name: frontend
