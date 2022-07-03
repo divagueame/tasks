@@ -1,0 +1,16 @@
+.devise hr {
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+.devise h2 {
+  text-align: center;
+}
+.devise select {
+  width: 100%;
+  max-width: 100%;
+  padding: var(--space-xs);
+}
+.devise option {
+  background-color: var(--color-glint);
+  padding: var(--space-xs);
+}

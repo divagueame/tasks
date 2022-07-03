@@ -5,7 +5,7 @@ en:
         name: Name of your task
       detail:
         name: Detail
-        description: Description ofyour detail
+        description: Description of this detail
         time: 10
     labels:
       task:

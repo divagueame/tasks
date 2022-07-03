@@ -1,6 +1,10 @@
 <footer class="task-total">
     <div class="task-total__inner container">
-    <div>Total:</div>
-    <div><%= task.total_time %></div>
+        <% if task.total_time > 0 %>
+            <div>Total:</div>
+            <div><%= duration(task.total_time) %></div>
+        <% else %>
+            <div>Add a todo and a detail to start...</div>
+        <% end %>
     </div>
 </footer>

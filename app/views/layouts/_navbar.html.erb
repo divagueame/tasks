@@ -1,4 +1,7 @@
 <header class="navbar">
+    <%= link_to root_path do %>
+    <h2>TeamTask</h2>
+    <% end %>
     <% if user_signed_in? %>
         <div class="navbar__brand">@<%= current_team.name %></div>
         <div class="navbar__user-info">
