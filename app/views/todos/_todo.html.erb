@@ -3,7 +3,14 @@
     <%= turbo_frame_tag dom_id(todo, :edit) do %>
       <div class="todo__header">
         <h2 class="todo__title">
+            
             <%= image_tag 'checkbox' if todo.done %>
+           
+            <%= button_to task_todo_path(task, todo),  method: :patch, data: { turbo: false } do %>
+            
+              <%= image_tag 'checkbox', class: 'red' %>
+            <% end %>
+
             <%= todo.name %>
         </h2>
 
