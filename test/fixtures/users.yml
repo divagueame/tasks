@@ -2,13 +2,16 @@ boss:
   email: boss@chiki.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   team: frontend
+  confirmed_at: <%= Time.now %>
 
 loser:
   email: loser@chiki.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   team: frontend
+  confirmed_at: <%= Time.now %>
 
 smartie:
   email: smartie@boom.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   team: marketing
+  confirmed_at: <%= Time.now %>

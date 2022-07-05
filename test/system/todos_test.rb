@@ -45,6 +45,6 @@ class TodosTest < ApplicationSystemTestCase
 
     assert_no_text @todo.name
     assert_selector 'h1', text: @task.name
-    assert_text @task.total_time
+    assert_text 'Add a todo and a detail to start...'
   end
 end

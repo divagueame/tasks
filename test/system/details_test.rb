@@ -5,6 +5,7 @@ class DetailsTest < ApplicationSystemTestCase
 
   setup do
     login_as users(:boss)
+
     @task = tasks(:one)
     @todo = todos(:one)
     @detail = details(:go_bathroom)
@@ -21,15 +22,18 @@ class DetailsTest < ApplicationSystemTestCase
     end
     assert_selector 'h1', text: 'Do the bed'
 
-    find_field('detail_name').set('Beaa')
-    fill_in 'Description', with: 'Animation2'
-    fill_in 'Time', with: 1234
-    click_on 'Create detail'
+    within "##{dom_id(@todo)}" do
+      find_field('detail_name').set('This is a new name')
+      fill_in 'Description', with: 'A new beautiful description'
 
+      find('#detail_time option:last-of-type').select_option
+      p
+      click_on 'Create detail'
+    end
     assert_selector 'h1', text: 'Do the bed'
-    assert_text 'Animation2'
-    assert_text 'Beaa'
-    assert_text '1234'
+    assert_text 'A new beautiful description'
+    assert_text 'This is a new name'
+    assert_text '300'
   end
 
   test 'Updating a detail' do
