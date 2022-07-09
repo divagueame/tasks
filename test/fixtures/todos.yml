@@ -6,9 +6,14 @@ one:
 two:
   task: one
   name: Put the sheets on the bed
-  done: false
+  done: true
 
 three:
   task: two
   name: Go outside and talk to people
   done: false
+
+four:
+  task: one
+  name: Whenever you do it, its good
+  done: true
