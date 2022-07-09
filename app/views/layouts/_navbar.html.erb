@@ -1,9 +1,11 @@
 <header class="navbar">
-    <%= link_to root_path do %>
-    <h2>TeamTask</h2>
+    <%= link_to root_path, class: "navbar__name" do %>
+        <h2>TeamTask</h2>
     <% end %>
     <% if user_signed_in? %>
-        <h2 class="navbar__brand">@<%= current_team.name %></h2>
+        <div class="navbar__brand">
+            <h2>@<%= current_team.name %></h2>
+        </div>
         <div class="navbar__user-info">
             <div><%= current_user.name %></div>
             <div></div><%= current_user.email %></div>

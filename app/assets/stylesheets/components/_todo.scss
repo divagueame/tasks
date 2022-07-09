@@ -89,6 +89,7 @@
     color: white;
   }
   .todo__body {
-    background: var(--color-white);
+    // background: var(--color-white);
+    display: none;
   }
 }

@@ -3,12 +3,6 @@
 
     <%= f.label :name %>
     <%= f.text_field :name, html5: true, input_html: { autofocus: true } %>
-    <% if action_name == 'edit' then %>
-      <div class='done'>
-        <%= f.check_box :done, html5: true %>
-        <%= f.label :done do %>Completed<% end %>
-      </div>
-    <% end %>
 
   <div class="todo__actions">
     <%= link_to "Cancel", task_path(task), class: "btn btn--light" %>

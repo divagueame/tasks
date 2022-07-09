@@ -1,31 +1,40 @@
 .navbar {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: var(--space-xs);
   box-shadow: var(--shadow-large);
   padding: var(--space-xs) var(--space-m);
   margin-bottom: var(--space-xxl);
   background-color: (var(--color-white));
-
+  &__name {
+    text-align: center;
+  }
   &__brand {
     font-weight: bold;
     font-size: var(--font-size-xl);
     color: var(--color-text-header);
-    background-color: var(--color-tertiary);
     border-radius: 2px;
     margin-left: var(--space-xxs);
-    border-radius: var(--space-xs);
-    padding: var(--space-xxxs) var(--space-xs);
+    h2 {
+      border-radius: var(--space-xs);
+      padding: var(--space-xxxs) var(--space-xs);
+      background-color: var(--color-tertiary);
+    }
   }
   &__user-info {
     font-weight: bold;
-    margin-left: auto;
     margin-right: var(--space-s);
+    margin-left: var(--space-s);
     border: 1px dashed rgb(124, 124, 124);
     border-radius: 2px;
     padding: var(--space-xs) var(--space-s);
     font-size: var(--font-size-s);
     line-height: var(--space-s);
+    @include media(tabletAndUp) {
+      margin-left: auto;
+    }
   }
   &__name {
     color: var(--color-text-header);
