@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :tasks do
     resources :todos, except: %i[index show] do
+      patch 'toggle_done/todo'
       resources :details, except: %i[index show]
     end
   end

@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import RemovalsController from "./removals_controller.js"
 application.register("removals", RemovalsController)
+
+import ToggleDoneController from "./toggle_done_controller.js"
+application.register("toggle-done", ToggleDoneController)
