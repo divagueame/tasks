@@ -23,7 +23,7 @@ class TodosTest < ApplicationSystemTestCase
     initial_name = @todo.name
 
     within id: dom_id(@todo, :edit) do
-      click_on 'Edit'
+      find(:css, '.btn-edit').click
     end
 
     assert_selector 'h1', text: @task.name
@@ -39,7 +39,7 @@ class TodosTest < ApplicationSystemTestCase
     assert_text @todo.name
     accept_confirm do
       within id: dom_id(@todo, :edit) do
-        click_on 'Delete'
+        find(:css, '.btn-remove').click
       end
     end
 

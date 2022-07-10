@@ -13,12 +13,7 @@
     flex-basis: 100%;
     padding: var(--space-xs);
   }
-  .done {
-    display: flex;
-    gap: var(--space-xs);
-    align-items: center;
-    flex-basis: 100%;
-  }
+
   form.todo &__actions {
     // outline: 2px solid rgb(255, 12s3, 0);
     @include media(tabletAndUp) {
@@ -47,10 +42,19 @@
         brightness(102%) contrast(94%);
     }
   }
-
   &__actions {
     display: flex;
     gap: var(--space-xs);
+    justify-content: space-between;
+
+    .btn-img img {
+      width: 16px;
+      height: 16px;
+      max-width: unset;
+    }
+    .btn-remove img {
+      filter: invert(1);
+    }
   }
 
   &__body {
@@ -84,12 +88,17 @@
     color: var(--color-text-muted);
   }
 
-  .btn.done {
+  .btn-remove img {
+    filter: invert(0);
+  }
+  .btn-remove {
     background-color: var(--color-primary-rotate);
+  }
+
+  .btn.done {
     color: white;
   }
   .todo__body {
-    // background: var(--color-white);
     display: none;
   }
 }
