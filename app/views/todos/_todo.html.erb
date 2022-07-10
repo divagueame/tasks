@@ -18,9 +18,9 @@
         <div class="todo__actions">
           <%= link_to task_todo_path(task, todo), data: {turbo_method: :delete},
                         form: { data: {turbo_confirm: 'Sure?' } },
-                        class: "btn btn--light btn-img btn-remove" do %><%= image_tag 'remove', alt: 'Delete' %><% end %>
+                        class: "btn btn--light btn-img btn-remove" do %><%= image_tag 'remove.svg', alt: 'Delete' %><% end %>
           <%= link_to edit_task_todo_path(task, todo),
-                      class: "btn btn--light btn-img btn-edit" do %><%= image_tag 'edit', alt: 'Edit' %><% end %>
+                      class: "btn btn--light btn-img btn-edit" do %><%= image_tag 'edit.svg', alt: 'Edit' %><% end %>
         </div>
       </div>
     <%  end %>
